@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "gen/api";
+
+package simple.maker;
+
+service SimpleSearchService {
+    rpc Search(SearchRequest) returns (SearchResponse) {};
+}
+
+message SearchRequest {
+    string query = 1;
+}
+
+message SearchResponse {
+    bool is_found = 1;
+    Person person = 2;
+}
+
+message Person {
+    string name = 1;
+    int32 age = 2;
+    string email = 3;
+}
