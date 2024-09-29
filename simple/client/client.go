@@ -30,6 +30,11 @@ func main() {
 		log.Fatalf("failed to search: %v", err)
 	}
 
-	log.Printf("Person: %v", r.GetPerson())
-
+	if r.GetIsFound() {
+		log.Printf("Person found: %v", r.GetPerson())
+		return
+	} else {
+		log.Printf("Person not found")
+		return
+	}
 }

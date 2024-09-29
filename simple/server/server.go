@@ -30,10 +30,10 @@ func (s *server) Search(ctx context.Context, req *api.SearchRequest) (*api.Searc
 	log.Printf("Query: %s", query)
 	if data[query].Name != "" {
 		person := data[query]
-		return &api.SearchResponse{Person: &person}, nil
+		return &api.SearchResponse{Person: &person, IsFound: true}, nil
 	}
 
-	return nil, fmt.Errorf("person not found")
+	return &api.SearchResponse{IsFound: false}, nil
 }
 
 func main() {
